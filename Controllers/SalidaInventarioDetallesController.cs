@@ -20,20 +20,7 @@ namespace AcademiaFs.ProyectoInventario.Api.Controllers
             _mapper = mapper;
         }
 
-        [HttpGet("seleccionarlote/{idProducto}/{cantidad}")]
-        public IActionResult SeleccionarInventario(int idProducto, int cantidad)
-        {
-            var resultado = _service.SeleccionarInventario(idProducto, cantidad);
-            return Ok(resultado);
-        }
-
-        [HttpPut("{idProductoLote}/{cantidadRequerida}")]
-        public IActionResult actualizarInventario(int idProductoLote, int cantidadRequerida)
-        {
-            var respuesta = _service.ActualizarInventario(idProductoLote, cantidadRequerida);
-            return Ok(respuesta);
-
-        }
+        
 
         [HttpPost("")]
         public IActionResult agregarDetalle(SalidaInventarioDetalleAgregarDto detalleSalidaInventario)

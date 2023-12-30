@@ -1,6 +1,5 @@
 ﻿using AcademiaFs.ProyectoInventario.Api._Features.Estados;
 using AcademiaFs.ProyectoInventario.Api._Features.Estados.Dtos;
-using AutoMapper;
 using Farsiman.Application.Core.Standard.DTOs;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

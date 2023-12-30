@@ -2,6 +2,7 @@
 using AcademiaFs.ProyectoInventario.Api._Common.Enums;
 using AcademiaFs.ProyectoInventario.Api._Features.Estados.Entities;
 using AcademiaFs.ProyectoInventario.Api._Features.Perfiles.Entities;
+using AcademiaFs.ProyectoInventario.Api._Features.ProductosLotes;
 using AcademiaFs.ProyectoInventario.Api._Features.ProductosLotes.Entities;
 using AcademiaFs.ProyectoInventario.Api._Features.SalidasInventario.Dtos;
 using AcademiaFs.ProyectoInventario.Api._Features.SalidasInventario.Entities;
@@ -26,17 +27,18 @@ namespace AcademiaFs.ProyectoInventario.Api._Features.SalidasInventario
         private readonly IUnitOfWork _unitOfWork;
         private readonly CurrentUser _currentUser; 
         private readonly ISalidaInventarioDomain _salidaInventarioDomain;
-        private readonly ISalidaInventarioDetallesDomain _salidaInventarioDetallesDomain;
         private readonly ISalidaInventarioDetalleService _salidaInventarioDetalleService;
+        private readonly IProductosLotesService _productosLotesService;
         private readonly IRepository<SalidaInventario> _salidaInventarioRepository;
 
-        public SalidaInventarioService(IMapper mapper, UnitOfWorkBuilder unitOfWorkBuilder, CurrentUser currentUser, ISalidaInventarioDomain salidaInventarioDomain, ISalidaInventarioDetalleService salidaInventarioDetalleService)
+        public SalidaInventarioService(IMapper mapper, UnitOfWorkBuilder unitOfWorkBuilder, CurrentUser currentUser, ISalidaInventarioDomain salidaInventarioDomain, ISalidaInventarioDetalleService salidaInventarioDetalleService, IProductosLotesService productosLotesService)
         {
             _mapper = mapper;
             _unitOfWork = unitOfWorkBuilder.BuilderSistemaInventario();
             _currentUser = currentUser;
             _salidaInventarioDomain = salidaInventarioDomain;
             _salidaInventarioDetalleService = salidaInventarioDetalleService;
+            _productosLotesService = productosLotesService;
 
             _salidaInventarioRepository = _unitOfWork.Repository<SalidaInventario>();
         }
@@ -136,7 +138,7 @@ namespace AcademiaFs.ProyectoInventario.Api._Features.SalidasInventario
                 SalidaInventarioDetalleAgregarDto detalleSalidaInventario = _mapper.Map<SalidaInventarioDetalleAgregarDto>(detalle);
                 detalleSalidaInventario.SalidaInventarioId = salida.SalidaInventarioId;
                 var detalleAgregado = _salidaInventarioDetalleService.AgregarDetalle(detalleSalidaInventario);
-                var loteActualizado = _salidaInventarioDetalleService.ActualizarInventario(detalle.LoteId, detalle.CantidadProducto);
+                var loteActualizado = _productosLotesService.ActualizarInventario(detalle.LoteId, detalle.CantidadProducto);
                 if (!detalleAgregado.Ok)
                 {
                     _unitOfWork.RollBack();
@@ -145,7 +147,7 @@ namespace AcademiaFs.ProyectoInventario.Api._Features.SalidasInventario
                 }
                 if (!loteActualizado.Ok)
                 {
-                    int cantidadEnLote = _salidaInventarioDetalleService.CantidadPorLote(detalle.LoteId);
+                    int cantidadEnLote = _productosLotesService.CantidadPorLote(detalle.LoteId);
                     _unitOfWork.RollBack();
                     respuesta = Respuesta<SalidaDto>.Fault(Mensajes.CANTIDAD_LOTE_INSUFICIENTE + detalle.LoteId + Mensajes.CANTIDAD_EN_INVENTARIO + cantidadEnLote , MensajesHttp.CODIGO400, salidaInventarioDto);
                     return respuesta;

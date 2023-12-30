@@ -68,15 +68,20 @@ namespace AcademiaFs.ProyectoInventario.Api.Infrastructure
             CreateMap<ProductoActualizarDto, Producto>().ReverseMap();
             CreateMap<ProductoActualizarSolicitudDto, Producto>().ReverseMap();
             CreateMap<ProductoActualizarDto, ProductoActualizarSolicitudDto>().ReverseMap();
+            CreateMap<ProductoLoteAgregarSolicitudDto, Producto>().ReverseMap();
 
             CreateMap<ProductoLoteDto, ProductoLote>().ReverseMap();
-
+            CreateMap<ProductoLoteAgregarDto, ProductoLote>().ReverseMap();
+            CreateMap<ProductoLoteAgregarSolicitudDto, ProductoLote>().ReverseMap();
+            CreateMap<ProductoLoteAgregarDto, ProductoLoteAgregarSolicitudDto>().ReverseMap();
+            CreateMap<ProductoLoteActualizarDto, ProductoLote>().ReverseMap();
+            CreateMap<ProductoLoteActualizarSolicitudDto, ProductoLote>().ReverseMap();
+            CreateMap<ProductoLoteActualizarDto, ProductoLoteActualizarSolicitudDto>().ReverseMap();
 
             CreateMap<AgregarUsuarioDto, AgregarUsuarioCreadoDto>().ReverseMap();
 
             CreateMap<SalidaDto, SalidaInventario>().ReverseMap();
 
-            CreateMap<SalidaDto, SalidaInventario>().ReverseMap();
 
             CreateMap<SalidaInventarioDetalleDto, SalidaInventarioDetalle>().ReverseMap();
             CreateMap<SalidaInventarioDetalleAgregarDto, SalidaInventarioDetalle>().ReverseMap();

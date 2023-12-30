@@ -1,6 +1,5 @@
 ﻿using AcademiaFs.ProyectoInventario.Api._Features.SalidasInventario;
 using AcademiaFs.ProyectoInventario.Api._Features.SalidasInventario.Dtos;
-using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

@@ -68,6 +68,13 @@
         public const string PRODUCTO_ACTUALIZADO_EXITOSAMENTE = "El producto fue actualizado exitosamente.";
         public const string PRODUCTO_DESACTIVADO_EXITOSAMENTE = "El producto fue desactivado exitosamente.";
 
+        public const string PRODUCTO_LOTE_NO_EXISTE = "El lote del producto no existe.";
+        public const string PRODUCTO_LOTE_YA_EXISTE = "El lote del producto ya existe.";
+        public const string PRODUCTO_LOTE_OBTENIDO_EXITOSAMENTE = "El lote del producto fue obtenido exitosamente.";
+        public const string PRODUCTO_LOTE_AGREGADO_EXITOSAMENTE = "El lote del producto fue agregado exitosamente.";
+        public const string PRODUCTO_LOTE_ACTUALIZADO_EXITOSAMENTE = "El lote del producto fue actualizado exitosamente.";
+        public const string PRODUCTO_LOTE_DESACTIVADO_EXITOSAMENTE = "El lote del producto fue desactivado exitosamente.";
+
         public const string CANTIDAD_INVENTARIO_INSUFICIENTE = "No hay suficiente productos en inventario, hay : ";
         public const string CANTIDAD_EN_INVENTARIO = " ,en inventario hay ";
         public const string CANTIDAD_LOTE_INSUFICIENTE = "No hay suficiente cantidad en el lote con id: ";

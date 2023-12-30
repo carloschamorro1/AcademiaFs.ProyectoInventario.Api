@@ -1,6 +1,5 @@
 ﻿using AcademiaFs.ProyectoInventario.Api._Features.Reportes;
 using AcademiaFs.ProyectoInventario.Api._Features.Reportes.Dtos;
-using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

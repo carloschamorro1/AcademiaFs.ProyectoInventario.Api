@@ -15,6 +15,7 @@ namespace AcademiaFs.ProyectoInventario.Api.Infrastructure.Inventario.Maps.Produ
             builder.Property(e => e.Costo).HasColumnType("decimal(10, 2)");
             builder.Property(e => e.FechaCreacion).HasColumnType("datetime");
             builder.Property(e => e.FechaModificacion).HasColumnType("datetime");
+            builder.Property(e => e.FechaVencimiento).HasColumnType("datetime");
             builder.Property(e => e.ProductoId).HasColumnName("ProductoID");
             builder.Property(e => e.UsuarioCreacionId).HasColumnName("UsuarioCreacionID");
             builder.Property(e => e.UsuarioModificacionId).HasColumnName("UsuarioModificacionID");

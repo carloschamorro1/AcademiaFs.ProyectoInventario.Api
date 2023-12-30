@@ -1,11 +1,7 @@
 ﻿using AcademiaFs.ProyectoInventario.Api._Features.Empleados;
 using AcademiaFs.ProyectoInventario.Api._Features.Empleados.Dtos;
-using AcademiaFs.ProyectoInventario.Api._Features.Estados;
-using AcademiaFs.ProyectoInventario.Api._Features.Estados.Dtos;
-using AutoMapper;
 using Farsiman.Application.Core.Standard.DTOs;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AcademiaFs.ProyectoInventario.Api.Controllers

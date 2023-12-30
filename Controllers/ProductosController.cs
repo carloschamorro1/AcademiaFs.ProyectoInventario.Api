@@ -1,15 +1,12 @@
-﻿using AcademiaFs.ProyectoInventario.Api._Features.Perfiles;
-using AcademiaFs.ProyectoInventario.Api._Features.Perfiles.Dtos;
-using AcademiaFs.ProyectoInventario.Api._Features.Productos;
+﻿using AcademiaFs.ProyectoInventario.Api._Features.Productos;
 using AcademiaFs.ProyectoInventario.Api._Features.Productos.Dtos;
 using Farsiman.Application.Core.Standard.DTOs;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AcademiaFs.ProyectoInventario.Api.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [Route("productos")]
     [ApiController]
     public class ProductosController : ControllerBase
